@@ -7,15 +7,19 @@ class Venue():
     self.email = email
 
     self.guest_list[guest] = email
-    print("{} added to guest list".format(guest))
+    print("'{}' added to guest list".format(guest))
     print ("there are now {} guests on the list".format(len(self.guest_list.keys())))
 
   def find_guest(self,name):
     if name in self.guest_list:
       self.name = name
-      print("{} exists in the list".format(self.guest_list[name]))
+      print("'{}' exists in the list".format(self.guest_list[name]))
     else:
-      print("{} does not exitst".format(name))
+      print("'{}' does not exitst".format(name))
+
+  def print_list(self):
+    for key in self.guest_list.keys():
+      print(key)
 
   def loop(self):
     while True:
@@ -29,6 +33,8 @@ class Venue():
       elif choice == "check guest list" or choice == "check" or choice == "check list":
         list_query = input("What name would you like to check? ")
         self.find_guest(list_query)
+      elif choice == "list":
+        self.print_list()
       elif choice == "exit":
         return
   
