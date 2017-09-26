@@ -1,5 +1,3 @@
-import hashlib, binascii
-
 class Secret():
   def __init__(self,secret,password):
     self.__secret = secret
@@ -7,10 +5,12 @@ class Secret():
 
 
 
+
+
+
   def get_secret(self,password):
     if password == self.__password:
-      print (self.__secret)
-      # return self.__secret
+      print ("Password corret. Secret: {}".format(self.__secret))
       choice = input("would you like to change the password? ")
 
       if choice == "yes":
@@ -20,6 +20,8 @@ class Secret():
 
       else:
         return
+    else:
+      print("password is wrong")
 
 andrew_secret = Secret("I am beautiful","truth")
 andrew_secret.get_secret("truth")
