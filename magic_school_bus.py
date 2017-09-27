@@ -7,14 +7,18 @@ class Bus():
     print("I'm the bus")
 
   def drive(self,students):
-    if len(students) == 10 and len(self.drivers) < 1:
+    if len(students) == 10 and len(self.drivers) == 1:
       print("Let's goooooooooooooo class")
+      return
     elif len(students) > 10:
       difference = len(students) - 10
       print("there are {} too many students".format(difference))
     elif len(students) < 10:
       required_students = 10 - len(students)
       print("Add {} more students to drive.".format(required_students))
+    else:
+      print("you've not met the conditions. You currently have {} students and {} driver(s)".format(len(students),len(self.drivers)))
+      return
 
 
   def board_students(self,quantity):
@@ -75,6 +79,7 @@ class Bus():
           self.remove_driver(driver_quantity)
       elif primary_choice == "drive":
         self.drive(self.students)
+        
 
 
       
