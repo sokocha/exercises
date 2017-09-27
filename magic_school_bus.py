@@ -4,7 +4,7 @@ class Bus():
   def __init__(self,drivers = [],students=[]):
     self.drivers = drivers
     self.students = students
-    print("I'm the bus")
+    print("Let's board the damn bus")
 
   def drive(self,students):
     if len(students) == 10 and len(self.drivers) == 1:
@@ -45,12 +45,19 @@ class Bus():
 
   def remove_driver(self,quantity):
     for _ in range(quantity):
-      self.drivers.pop()
-      remaining_drivers = len(self.drivers)
+      if len(self.drivers) > quantity:
+        self.drivers.pop()
+        remaining_drivers = len(self.drivers)
 
-      print("Removing {} drivers".format(_+1))
-      time.sleep(0.5)
-      print("There are now {} drivers".format(remaining_drivers))
+        print("Removing {} drivers".format(_+1))
+        time.sleep(0.5)
+        print("There are now {} drivers".format(remaining_drivers))
+      else:
+        print("You can't remove more people than are on the bus")
+        return
+
+
+
 
 
   def loop(self):
@@ -79,7 +86,7 @@ class Bus():
           self.remove_driver(driver_quantity)
       elif primary_choice == "drive":
         self.drive(self.students)
-        
+
 
 
       
@@ -94,7 +101,7 @@ class Driver():
   counter = 0
   def __init__(self):
     self.counter += 1
-    print("I'm a driver. There are {} drivers".format(self.counter))
+    # print("I'm a driver. There are {} drivers".format(self.counter))
 
 
 # students = []
