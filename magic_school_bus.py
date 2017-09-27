@@ -1,10 +1,20 @@
 import time
+class Student():
+  def __init__(self):
+    print ("I'm alive and well.")
 
+class Driver():
+  counter = 0
+  def __init__(self):
+    self.counter += 1
+    
 class Bus():
   def __init__(self,drivers = [],students=[]):
     self.drivers = drivers
     self.students = students
     print("Let's board the damn bus")
+
+
 
   def drive(self,students):
     if len(students) == 10 and len(self.drivers) == 1:
@@ -93,14 +103,7 @@ class Bus():
 
 
 
-class Student():
-  def __init__(self):
-    print ("I'm alive and well.")
 
-class Driver():
-  counter = 0
-  def __init__(self):
-    self.counter += 1
     # print("I'm a driver. There are {} drivers".format(self.counter))
 
 
