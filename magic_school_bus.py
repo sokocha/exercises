@@ -1,4 +1,5 @@
 import time
+
 class Student():
   def __init__(self):
     print ("I'm alive and well.")
@@ -7,14 +8,12 @@ class Driver():
   counter = 0
   def __init__(self):
     self.counter += 1
-    
+
 class Bus():
   def __init__(self,drivers = [],students=[]):
     self.drivers = drivers
     self.students = students
     print("Let's board the damn bus")
-
-
 
   def drive(self,students):
     if len(students) == 10 and len(self.drivers) == 1:
@@ -30,12 +29,10 @@ class Bus():
       print("you've not met the conditions. You currently have {} students and {} driver(s)".format(len(students),len(self.drivers)))
       return
 
-
   def board_students(self,quantity):
     for _ in range(quantity):
       self.students.append(Student)
       print ("{} students on board".format(len(self.students)))
-
 
   def remove_students(self,quantity):
     for _ in range(quantity):
@@ -45,7 +42,6 @@ class Bus():
       print("Removing {} students".format(_+1))
       time.sleep(1)
       print("There are now {} students".format(remaining_students))
-
 
   def add_driver(self,quantity):
     for _ in range(quantity):
@@ -66,17 +62,11 @@ class Bus():
         print("You can't remove more people than are on the bus")
         return
 
-
-
-
-
   def loop(self):
     
     new_driver = Driver()
 
     while True:
-
-      # Bus(new_driver)
       primary_choice = input("Would you like to edit 'driver' or 'student' or just 'drive' ? ")
       if primary_choice == "student":
         add_remove_choice = input("would you like to add students or remove students? ")
@@ -96,25 +86,6 @@ class Bus():
           self.remove_driver(driver_quantity)
       elif primary_choice == "drive":
         self.drive(self.students)
-
-
-
-      
-
-
-
-
-    # print("I'm a driver. There are {} drivers".format(self.counter))
-
-
-# students = []
-
-
-# for _ in range(10):
-#   students.append(Student())
-
-
-ms_frizzle = Driver()
 
 example = Bus()
 example.loop()
